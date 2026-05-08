@@ -12,10 +12,15 @@
 pub mod config;
 pub mod error;
 pub mod sparse;
+pub mod weights;
 
 pub use config::{TemporalBackendKind, TemporalHeadConfig};
 pub use error::TemporalError;
 pub use sparse::SparseGqaHead;
+pub use weights::{
+    WeightBlob, WeightBlobHeader, WeightDtype, WEIGHT_BLOB_HEADER_LEN, WEIGHT_BLOB_MAGIC,
+    WEIGHT_BLOB_VERSION,
+};
 
 // Re-export the upstream Tensor3 so callers don't need a direct
 // `ruvllm_sparse_attention` dep.
